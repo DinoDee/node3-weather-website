@@ -1,7 +1,5 @@
 'use strict';
 
-console.log('Client-side JS file is loaded');
-
 const weatherForm = document.querySelector('form');
 const weatherInput = document.querySelector('form input');
 const responseStatus = document.querySelector('#response-status');
