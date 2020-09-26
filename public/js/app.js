@@ -22,13 +22,15 @@ weatherForm.addEventListener('submit', event => {
         throw data.error;
       }
 
-      const { address, forecast: {precipitation, temperature}, location} = data;
+      const { address, forecast: { humidity, precipitation, pressure, temperature }, location} = data;
 
       responseStatus.textContent = '';
       responseBody.textContent = 
 `Address: ${address}
-Precipitation: ${precipitation}
-Temperature: ${temperature}
+Humidity: ${humidity} %
+Precipitation: ${precipitation} %
+Pressure: ${pressure} hPa
+Temperature: ${temperature} °C
 Location: ${location}
 `;
     })

@@ -7,15 +7,19 @@ const forecast = function(latitude, longitude, callback) {
 
   request({ url, json: true }, ( error, { body } = {} ) => {
     if(error) {
-      callback('Unable to connect to weather web services.', undefined);
+      return callback('Unable to connect to weather web services.', undefined);
     } else if(body.error) {
-      callback('Unable to find location. Invalid lon/lat parameters.');
+      return callback('Unable to find location. Invalid lon/lat parameters.');
     } else {
+      const humidity = body.current.humidity;
       const precipitation = body.current.precip;
+      const pressure = body.current.pressure;
       const temperature = body.current.temperature;
 
-      callback(undefined, {
+      return callback(undefined, {
+        humidity,
         precipitation,
+        pressure,
         temperature
       });
     }
@@ -23,3 +27,32 @@ const forecast = function(latitude, longitude, callback) {
 };
 
 module.exports = forecast;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+// Lesson: Application deployment: New feature deployment workflow
+//
+// Challenge: Add new data to forecast
+//
+// 1. Update the forecast string to include new data
+// 2. Commit your changes
+// 3. Push your changes to GitHub and deploy to Heroku
+// 4. Test your work in the live application
