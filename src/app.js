@@ -8,7 +8,7 @@ const forecast = require('./utils/forecast');
 const geocode = require('./utils/geocode.js');
 
 const app = express();
-const port = process.env.PORT ?? 3000;
+const port = process.env.PORT || 3000;
 
 // Define paths for the Express.js configuration
 const publicDirectoryPath = path.join(__dirname, '../public');
