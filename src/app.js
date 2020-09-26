@@ -8,6 +8,7 @@ const forecast = require('./utils/forecast');
 const geocode = require('./utils/geocode.js');
 
 const app = express();
+const port = process.env.PORT ?? 3000;
 
 // Define paths for the Express.js configuration
 const publicDirectoryPath = path.join(__dirname, '../public');
@@ -114,11 +115,10 @@ app.get('*', (req, res) => {
 // The app.listen method starts up the web server, and listens for incoming requests at the specified port.
 // The optional callback function is called as soon as the web server starts.
 // A common development port is 3000.
-app.listen(3000, () => {
-  console.log('Server is up and running at port 3000');
+
+app.listen(port, () => {
+  console.log(`Server is up and running at port ${port}`);
 });
-
-
 
 
 
